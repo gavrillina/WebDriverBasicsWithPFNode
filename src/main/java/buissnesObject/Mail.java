@@ -1,4 +1,4 @@
-package entity;
+package buissnesObject;
 
 public class Mail {
 

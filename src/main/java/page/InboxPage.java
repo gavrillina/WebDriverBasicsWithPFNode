@@ -1,6 +1,6 @@
 package page;
 
-import entity.Mail;
+import buissnesObject.Mail;
 import exeptions.DraftNotFoundException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;

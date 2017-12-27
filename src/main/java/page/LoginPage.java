@@ -1,5 +1,6 @@
 package page;
 
+import buissnesObject.User;
 import exeptions.CannotLoginException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -22,11 +23,12 @@ public class LoginPage extends AbstractPage {
     @FindBy(xpath = "//div[@ng-if='showWelcome']/header")
     private WebElement welcomeMessage;
 
-    public InboxPage doLogIn(String userName, String userPass) throws CannotLoginException {
+    public InboxPage doLogIn(User user) throws CannotLoginException {
 
-        waitForVisibilityOfAllElementsLocatedBy(loginField);
-        loginField.sendKeys(userName);
-        passwordField.sendKeys(userPass);
+         waitForVisibilityOfAllElementsLocatedBy(loginField);
+
+        loginField.sendKeys(user.getUSERNAME());
+        passwordField.sendKeys(user.getUSERPASSWORD());
         enterButton.click();
         waitForVisibilityOfAllElementsLocatedBy(welcomeMessage);
         if (welcomeMessage.isDisplayed()) {
