@@ -34,12 +34,12 @@ public class ProtonMailTest {
     }
 
 
-    @Test
-    private void logInToBox() throws CannotLoginException {
+    @Test(dataProvider = "testDataForLogIn")
+    private void logInToBox(User user) throws CannotLoginException {
 
         homePageFactory = new HomePage(driver);
         inboxPageFactory = new InboxPage(driver);
-        homePageFactory.clickLoginButton().doLogIn(new User());
+        homePageFactory.clickLoginButton().doLogIn(user);
 
     }
 
@@ -61,11 +61,11 @@ public class ProtonMailTest {
         return new Object[][]{{mail}};
     }
 
-//    @DataProvider
-//    public Object[][] testDataForLogIn() {
-//        User user = new User ("automationTest@protonmail.com", "test123456");
-//        return new Object[][]{{user}};
-//    }
+    @DataProvider
+    public Object[][] testDataForLogIn() {
+
+        return new Object[][]{{User.PROTON_LOGIN}};
+    }
 
     @AfterTest
     private void closeBrowser() {

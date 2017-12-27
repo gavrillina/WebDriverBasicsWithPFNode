@@ -1,18 +1,24 @@
 package buissnesObject;
 
-public class User {
-    public User() {
-    }
+    public enum User {
 
-    final String USERNAME = "automationTest@protonmail.com";
-    final String USERPASSWORD = "test123456";
+        PROTON_LOGIN("automationTest@protonmail.com", "test123456"),
+        ANOTHER_PROTON_LOGIN("qwerty", "qwerty");
+
+        private final String userName;
+        private final String userPassword;
+
+        User(String userName, String userPassword) {
+            this.userName = userName;
+            this.userPassword = userPassword;
+        }
 
 
-    public String getUSERNAME() {
-        return USERNAME;
+           public String getUSERNAME() {
+        return userName;
     }
 
     public String getUSERPASSWORD() {
-        return USERPASSWORD;
+        return userPassword;
     }
 }

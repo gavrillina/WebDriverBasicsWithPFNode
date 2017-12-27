@@ -64,7 +64,7 @@ public class InboxPage extends AbstractPage {
 
         newMessageButton.click();
         waitForElementToBeClickable(senderMail);
-        senderMail.sendKeys(mail.getSenderMail());
+        senderMail.sendKeys(mail.getSenderName());
         mailTopic.sendKeys(mail.getTopic());
 
         getDriver().switchTo().frame(frame);
@@ -72,7 +72,7 @@ public class InboxPage extends AbstractPage {
         textContain.click();
 
         Actions make = new Actions(getDriver());
-        Action kbEvents = make.sendKeys(mail.getTextContain()).build();
+        Action kbEvents = make.sendKeys(mail.getContain()).build();
         kbEvents.perform();
 
         getDriver().switchTo().defaultContent();
@@ -94,7 +94,7 @@ public class InboxPage extends AbstractPage {
         List<WebElement> list = (List<WebElement>) draftList;
 
         for (WebElement webElement : list) {
-            if (senderName.getText().equals(mail.getSenderMail()) && subjectText.getText().equals(mail.getTopic())) {
+            if (senderName.getText().equals(mail.getSenderName()) && subjectText.getText().equals(mail.getTopic())) {
 
                 webElement.click();
 
@@ -102,7 +102,7 @@ public class InboxPage extends AbstractPage {
                 getDriver().switchTo().frame(iFrame);
 
 
-                if (textContain.getText().equals(mail.getTextContain())) {
+                if (textContain.getText().equals(mail.getContain())) {
                     getDriver().switchTo().defaultContent();
 
 

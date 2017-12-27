@@ -2,38 +2,38 @@ package buissnesObject;
 
 public class Mail {
 
-    private String senderMail;
+    private String senderName;
     private String topic;
-    private String textContain;
+    private String contain;
 
-    public Mail(String senderMail, String topic, String textContain) {
-        this.senderMail = senderMail;
+    public Mail(String senderName, String topic, String contain) {
+        this.senderName = senderName;
         this.topic = topic;
-        this.textContain = textContain;
+        this.contain = contain;
     }
 
-    public String getSenderMail() {
-        return senderMail;
-    }
-
-    public String getTopic() {
-        return topic;
-    }
-
-    public String getTextContain() {
-        return textContain;
-    }
-
-    public void setSenderMail(String senderMail) {
-        this.senderMail = senderMail;
+    public void setSenderName(String senderName) {
+        this.senderName = senderName;
     }
 
     public void setTopic(String topic) {
         this.topic = topic;
     }
 
-    public void setTextContain(String textContain) {
-        this.textContain = textContain;
+    public void setContain(String contain) {
+        this.contain = contain;
     }
 
+    public String getSenderName() {
+
+        return senderName;
+    }
+
+    public String getTopic() {
+        return topic;
+    }
+
+    public String getContain() {
+        return contain;
+    }
 }
