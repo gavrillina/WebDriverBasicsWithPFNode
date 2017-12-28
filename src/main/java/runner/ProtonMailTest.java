@@ -19,15 +19,7 @@ public class ProtonMailTest {
     @BeforeTest
     private void openBrowser() {
 
-//        try {
-//            driver = new RemoteWebDriver(new URL("http://10.12.12.191:4444/wd/hub"), DesiredCapabilities.chrome());
-//        } catch (MalformedURLException e) {
-//            e.printStackTrace();
-//        }
-//        driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
-//        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-//        ;
-//        driver.manage().window().maximize();
+        //driver=new WebDriverSingleton().getRemotedriver("10.12.12.191");
 
         driver = new WebDriverSingleton().getDriver();
         // by FactoryMethod
