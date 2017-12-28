@@ -7,7 +7,8 @@ import page.*;
 import exeptions.CannotLoginException;
 import exeptions.DraftNotFoundException;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
+import utility.FactoryMethodChrome;
+import utility.WebDriverSingleton;
 
 
 public class ProtonMailTest {
@@ -15,8 +16,9 @@ public class ProtonMailTest {
     HomePage homePageFactory;
     InboxPage inboxPageFactory;
 
-    @BeforeClass
-    private void openBrauser() {
+    @BeforeTest
+    private void openBrowser() {
+
 //        try {
 //            driver = new RemoteWebDriver(new URL("http://10.12.12.191:4444/wd/hub"), DesiredCapabilities.chrome());
 //        } catch (MalformedURLException e) {
@@ -27,8 +29,9 @@ public class ProtonMailTest {
 //        ;
 //        driver.manage().window().maximize();
 
-        System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
-        driver = new ChromeDriver();
+        driver = new WebDriverSingleton().getDriver();
+        // by FactoryMethod
+        // driver = new FactoryMethodChrome().FactoryMethod();
         driver.get("https://protonmail.com/");
         driver.manage().window().maximize();
     }

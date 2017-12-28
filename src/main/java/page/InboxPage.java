@@ -19,41 +19,40 @@ public class InboxPage extends AbstractPage {
     }
 
     @FindBy(xpath = "//*[@class='compose pm_button sidebar-btn-compose']")
-    WebElement newMessageButton;
+    private WebElement newMessageButton;
 
     @FindBy(css = "#autocomplete")
-    WebElement senderMail;
+    private WebElement senderMail;
 
     @FindBy(xpath = "//*[@class = 'senders-name']")
-    WebElement senderName;
+    private WebElement senderName;
 
     @FindBy(xpath = "//*[@id='uid1']/div[2]/div[5]/input")
-    WebElement mailTopic;
+    private WebElement mailTopic;
 
     @FindBy(xpath = "//*[@class = 'subject-text ellipsis']")
     private WebElement subjectText;
 
     @FindBy(xpath = "//iframe[@class = 'squireIframe']")
-    WebElement frame;
-
+    private WebElement frame;
 
     @FindBy(xpath = "//*[@class='protonmail_signature_block']/preceding-sibling::div[2]")
-    WebElement textContain;
+    private WebElement textContain;
 
     @FindBy(xpath = "//*[@data-original-title = 'Закрыть']")
-    WebElement closeButton;
+    private WebElement closeButton;
 
     @FindBy(xpath = "//*[@aria-label='Сохранить']")
     private WebElement saveButton;
 
     @FindBy(xpath = "//span[text() = 'Черновики']")
-    WebElement draft;
+    private WebElement draft;
 
     @FindBy(xpath = "//*[@ng-repeat = 'conversation in conversations track by conversation.ID']")
-    List<WebElement> draftList;
+    private List<WebElement> draftList;
 
     @FindBy(xpath = "//*[text()='Отправить']")
-    WebElement sendButton;
+    private WebElement sendButton;
 
     @FindBy(xpath = "//span[@ng-bind-html = '$message']")
     private WebElement messagePopUp;
@@ -67,15 +66,15 @@ public class InboxPage extends AbstractPage {
         senderMail.sendKeys(mail.getSenderName());
         mailTopic.sendKeys(mail.getTopic());
 
-        getDriver().switchTo().frame(frame);
+        driver.switchTo().frame(frame);
 
         textContain.click();
 
-        Actions make = new Actions(getDriver());
+        Actions make = new Actions(driver);
         Action kbEvents = make.sendKeys(mail.getContain()).build();
         kbEvents.perform();
 
-        getDriver().switchTo().defaultContent();
+        driver.switchTo().defaultContent();
 
         saveButton.click();
 
@@ -99,11 +98,11 @@ public class InboxPage extends AbstractPage {
                 webElement.click();
 
                 WebElement iFrame = frame;
-                getDriver().switchTo().frame(iFrame);
+                driver.switchTo().frame(iFrame);
 
 
                 if (textContain.getText().equals(mail.getContain())) {
-                    getDriver().switchTo().defaultContent();
+                    driver.switchTo().defaultContent();
 
 
                     sendButton.click();

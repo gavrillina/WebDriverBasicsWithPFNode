@@ -32,7 +32,7 @@ public class LoginPage extends AbstractPage {
         enterButton.click();
         waitForVisibilityOfAllElementsLocatedBy(welcomeMessage);
         if (welcomeMessage.isDisplayed()) {
-            return new InboxPage(getDriver());
+            return new InboxPage(driver);
         } else
             throw new CannotLoginException("Login failed");
 

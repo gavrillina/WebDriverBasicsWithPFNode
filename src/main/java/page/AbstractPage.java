@@ -2,6 +2,8 @@ package page;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -10,11 +12,8 @@ import java.util.List;
 
 public class AbstractPage {
 
-    private WebDriver driver;
+    protected WebDriver driver;
 
-    public WebDriver getDriver() {
-        return driver;
-    }
 
     public AbstractPage(WebDriver driver) {
 
