@@ -1,4 +1,4 @@
-package buissnesObject;
+package buissnes_object;
 
     public enum User {
 

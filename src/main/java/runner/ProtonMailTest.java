@@ -1,13 +1,12 @@
 package runner;
 
-import buissnesObject.Mail;
-import buissnesObject.User;
+import buissnes_object.Mail;
+import buissnes_object.User;
 import org.testng.annotations.*;
 import page.*;
 import exeptions.CannotLoginException;
 import exeptions.DraftNotFoundException;
 import org.openqa.selenium.WebDriver;
-import utility.FactoryMethodChrome;
 import utility.WebDriverSingleton;
 
 
@@ -15,6 +14,7 @@ public class ProtonMailTest {
     WebDriver driver;
     HomePage homePageFactory;
     InboxPage inboxPageFactory;
+
 
     @BeforeTest
     private void openBrowser() {

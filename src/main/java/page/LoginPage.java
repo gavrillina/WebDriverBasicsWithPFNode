@@ -1,6 +1,6 @@
 package page;
 
-import buissnesObject.User;
+import buissnes_object.User;
 import exeptions.CannotLoginException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
